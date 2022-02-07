@@ -6,6 +6,7 @@ geographical data.
 
 """
 
+from pandas import RangeIndex
 from .utils import sorted_by_key  # noqa
 # Copyright (C) 2018 Garth N. Wells
 #
@@ -44,3 +45,28 @@ def stations_by_river(stations):
   c.sort()#sorts out the list in an alphabetical order
 
   return (a,b,c)# sends a list of list back to the line that called this function in this case t from Task1d
+
+def rivers_by_station_number(stations, N):
+    s = {}
+    riverlist = []
+    n = 0
+        
+    for station in stations:
+        riverlist.append(station.river)
+
+    for i in RangeIndex(len(riverlist)):
+        n = 0
+        current_river = ""
+        for river in riverlist:
+            if river == riverlist[i]:
+                current_river = river
+                n = n + 1
+        if n >= 1:
+            s[current_river] = n
+
+    print(s)
+    sorted_values = sorted(s.values())
+    sorted_s = {}
+
+    #sort s in value order and return the N highest vales
+
