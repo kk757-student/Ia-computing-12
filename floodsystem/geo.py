@@ -68,5 +68,6 @@ def rivers_by_station_number(stations, N):
     sorted_values = sorted(s.values())
     sorted_s = {}
 
-    #sort s in value order and return the N highest vales
+    #sort s in value order and return the N highest vales as a list
+
 
